@@ -26,7 +26,6 @@ type
     procedure SetMarker1Click(Sender: TObject);
     procedure ReleaseMarker1Click(Sender: TObject);
   private
-    // OnMoveForm Event
     procedure WMMove(var Msg: TWMMove); message WM_MOVE;
   public
     { Public-Deklarationen }
@@ -59,9 +58,7 @@ begin
 end;
 
 procedure TfrmView2.PasLibVlcPlayerView2MediaPlayerLengthChanged(Sender: TObject; time: Int64);
-// LengthChanged: ...erst nach: Play
 begin
-  // LengthChanged
   StatusPane1.Caption:='Zeit: ' + PasLibVlcPlayerView2.GetVideoPosStr('hh:mm:ss.ms');
   StatusPane2.Caption:='Dauer: ' + PasLibVlcPlayerView2.GetVideoLenStr('hh:mm:ss.ms');
 
@@ -71,7 +68,6 @@ end;
 
 procedure TfrmView2.PasLibVlcPlayerView2MediaPlayerTimeChanged(Sender: TObject; time: Int64);
 begin
-  // TimeChanged
   StatusPane1.Caption:='Zeit: ' + PasLibVlcPLayerView2.GetVideoPosStr('hh:mm:ss.ms');
   if frmEigenschaften.cbTimecodeShow.Checked then PasLibVlcPlayerView2.MarqueeShowText(PasLibVlcPlayerView2.GetVideoPosStr('hh:mm:ss.ms'), xPosTC, yPosTC, clTC, fsTC);
 
@@ -85,7 +81,6 @@ begin
   StatusPane3.Caption:='Offset: ';
   frmEigenschaften.eOffsetView0.Value:=prjOffsetVideo[2];
 
-  // Farbwechsel
   tbOffsetView2.Thumb.BorderColorDisabled:=clGreen;
   tbOffsetView2.Thumb.ColorDisabled:=clGreen;
   tbOffsetView2.Thumb.ColorMirrorDisabled:=clGreen;
@@ -102,7 +97,6 @@ begin
   StatusPane3.Caption:='Offset: ' + IntToStr(prjOffsetVideo[2]);
   frmEigenschaften.eOffsetView2.Value:=prjOffsetVideo[2];
 
-  // Farbwechsel
   tbOffsetView2.Thumb.BorderColorDisabled:=clRed;
   tbOffsetView2.Thumb.ColorDisabled:=clRed;
   tbOffsetView2.Thumb.ColorMirrorDisabled:=clRed;
